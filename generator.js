@@ -143,6 +143,6 @@ function generate() {
 			break;
 	}
 
-	document.getElementById("result").innerHTML = title + ".torrent";
+	return title + ".torrent";
 
 }
