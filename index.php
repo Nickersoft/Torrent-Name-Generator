@@ -14,23 +14,21 @@
 	</head>
 	<body>
 
+		<h1 class="uk-text-center uk-text-light">The Torrent File Generator</h1>
+		<h2 class="uk-text-center">What should the name of <i>your</i> next torrent be?</h2>
 
-		<div id="result">
-			<h1 class="uk-text-center uk-text-light">The Torrent File Generator</h1>
-			<h2 class="uk-text-center">What should the name of <i>your</i> next torrent be?</h2>
+		<div class="uk-text-center">
+			<form class="uk-form">
+				<input type="text" id="input" />
+				<button autocomplete="off">Generate!</button>
+			</form>
 
-			<div class="uk-text-center">
-				<form class="uk-form">
-					<input type="text" id="input" />
-					<button autocomplete="off">Generate!</button>
-				</form>
-
-				<div class="prelude"></div>
-				<div class="output"></div>
-			</div>
-
+			<div class="output"></div>
 		</div>
 
+		<footer class="uk-text-center">
+			Think this is cool? <a href="https://github.com/Nickersoft/Torrent-Name-Generator">Contribute on Github</a>.
+		</footer>
 
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/uikit/js/uikit.min.js"></script>

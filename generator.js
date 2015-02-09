@@ -127,6 +127,6 @@ function generate() {
 		}
 
 		//Print the torrent name
-		$(".output").html(make_torrent(input.length + 1) + ".torrent");
+		$(".output").html(make_torrent() + ".torrent");
 
 }

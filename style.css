@@ -23,4 +23,6 @@ form {
 	font-size:2em;
 	margin-top:25px;
 	display:inline-block;
+	width:50%;
+	height:100px;
 }

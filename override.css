@@ -2,7 +2,7 @@ h1 {
 	font-size:5em;
 	font-weight:lighter;
 	color:lime;
-	padding-top:15%;
+	padding-top:3.5em;
 	font-family:'VT323' !important;
 }
 
@@ -37,4 +37,18 @@ button {
 button:hover {
 	background:lime;
 	color:#000;
+}
+
+footer {
+	color:dimgray;
+	font-size:1.5em;
+}
+
+footer a {
+	color:#aaa;
+}
+
+footer a:hover {
+	color:white;
+	text-decoration:none;
 }
