@@ -6,11 +6,11 @@ $('form').submit(function() {
 
 	var torrent = generate();
 
-	$(".output").typed({
-		strings: ["Your torrent file name is<br/><br/>" + torrent],
-		typeSpeed: 0,
-		showCursor: false
-	});
+	// $(".output").typed({
+	// 	strings: ["Your torrent file name is<br/><br/>" + torrent],
+	// 	typeSpeed: 0,
+	// 	showCursor: false
+	// });
 
 
 	return false;

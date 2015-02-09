@@ -35,8 +35,18 @@
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/uikit/js/uikit.min.js"></script>
 		<script src="bower_components/typed.js/dist/typed.min.js"></script>
-
 		<script src="bower_components/jquery.typer/src/jquery.typer.js"></script>
 		<script src="script.js"></script>
+
+		<script>
+			$(document).ready(function () {
+
+				$.post("get_torrents.php", { }, function(data) {
+					html = data;
+					ready = true;
+				});
+
+			});
+		</script>
 	</body>
 </html>

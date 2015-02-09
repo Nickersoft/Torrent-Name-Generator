@@ -4,145 +4,129 @@ String.prototype.toTitleCase = function(){
     });
 };
 
+var ready = false;
+var html  = "";
+
 function generate() {
 
-	var name = document.getElementById("input").value;
-	var name_trimmed = name.trim().toTitleCase().replace(/\s+/g, ".");
+		if(!ready) {
+			$(".output").html("We're still gathering information. Please wait a few seconds, then try again.");
+			return;
+		}
 
-	var movie_types = ["BDRemux",
-					   "Bluray",
-					   "HDTV",
-					   "WEB-DL",
-					   "DVD-R",
-					   "HDRip",
-					   "WEBRip",
-					   "BDRip",
-					   "TVRip"];
+		var input    = $("input").eq(0).val();
 
-	var audio_types = [	"FLAC",
-					   	"320 kbps",
-						"256 kbps",
-						"128 kbps",
-						"APE",
-						"PERFECT"];
+		var links    = $(html).find('.cellMainLink');
+		var torrents = [];
 
-	var software_types = ["CRACKED",
-						  "WAREZ"];
+		$.each(links, function(i, el) {
+			torrents.push($(el).html());
+		});
 
-	var artists_old	   = ["Madonna",
-						  "Phil Collins",
-						  "Mick Jagger",
-						  "Bruce Springsteen",
-						  "James Taylor",
-						  "Prince",
-						  "Don Henley",
-						  "KISS",
-						  "Rick Astley",
-						  "Billy Joel"];
+		//Add the user word to the torrent string
+		var mix_text = function(text1, text2) {
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('-');
+			var index_of_dot = text2.indexOf('(');
+			var index_of_dot = text2.indexOf('[');
+			var index_of_dot = text2.indexOf('hdtv');
+			var index_of_dot = text2.indexOf('x264');
+			var index_of_dot = text2.indexOf('xvid');
+			var index_of_dot = text2.indexOf('yify');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
+			var index_of_dot = text2.indexOf('.');
 
-	var artists_new	   = ["One Direction",
-						  "Justin Bieber",
-						  "Fun",
-						  "Imagine Dragons",
-						  "Taylor Swift",
-						  "Katy Perry",
-						  "Lady Gaga",
-						  "Nicki Manaj",
-						  "Eminem",
-						  "MAGIC!"];
+		};
 
-	var d = new Date();
+		var end_words = {};	//The last word in each title
+		var beg_words = []; //The first word in each title
+		var word_stat = {}; //Words and words that can come after those words
 
-	var random_movie   	  = movie_types[Math.floor((Math.random() * (movie_types.length - 1)))];
-	var random_audio   	  = audio_types[Math.floor((Math.random() * (audio_types.length - 1)))];
-	var random_software   = software_types[Math.floor((Math.random() * (software_types.length - 1)))];
+		//Iterate through each torrent file name
+		for(var i = 0; i < torrents.length; i++) {
 
-	var random_artist1    = artists_old[Math.floor((Math.random() * (artists_old.length - 1)))];
-	var random_artist2    = artists_new[Math.floor((Math.random() * (artists_new.length - 1)))];
+			//Split the torrent file name by spaces
+			var words = torrents[i].split(' ');
 
-	var random_artist1_trimmed = random_artist1.trim().toTitleCase().replace(/\s+/g, ".");
-	var random_artist2_trimmed = random_artist2.trim().toTitleCase().replace(/\s+/g, ".");
+			//Add the first word to its respective array
+			beg_words.push(words[0]);
+		//	beg_words.push(input);
 
-	var random_year1      = Math.floor((Math.random() * (d.getFullYear() - 2000)) + 2000);
-	var random_year2      = Math.floor((Math.random() * (d.getFullYear() - 2000)) + 2000);
+			//Add the last word to its respective array
+			end_words[words[words.length - 1]] = true;
 
-	if(random_year1 > random_year2) {
-		var temp     = random_year2;
-		random_year2 = random_year1;
-		random_year1 = temp;
-	}
+			//Iterate through each word (excluding the last one)
+			for(var j = 0; j < words.length - 1; j++) {
 
-	var curyear			  = d.getFullYear();
+				var curr_word = words[j];
+				var next_word = words[j + 1];
 
-	var movie_string_1 	  = name_trimmed + ".(" + random_year1 + ").[" + random_movie + "]";
-	var movie_string_2	  = random_year1 + "." + name_trimmed + "." + random_movie;
-	var movie_string_3    = name_trimmed + "." + random_year1 + "." + random_movie;
-
-	var audio_string_1 	  = random_artist2_trimmed + "." + name_trimmed + ".(" + random_year1 + " - " + random_year2 + ").Discography.[" + random_audio + "]";
-	var audio_string_2	  = random_artist2_trimmed + ".(" + name + " FULL ALBUM)." + random_year1 + "." + "[" + random_audio + "]";
-	var audio_string_3    = name_trimmed + "." + random_artist1_trimmed + "(feat. + " + random_artist2 + ")" + "." + random_audio;
-
-	var software_string1  = name_trimmed + "." + curyear + ".(" + random_software + ")";
-	var software_string2  = name_trimmed + "." + "( " + curyear + " " + random_software + ")";
-	var software_string3  = curyear + "." + name_trimmed + "." + random_software;
-
-
-	var rand_num = Math.floor((Math.random() * (3 - 1)) + 1);
-	var title    = "";
-
-	switch(rand_num) {
-		case 1:
-			var rand = Math.floor((Math.random() * (3 - 1)) + 1);
-			switch(rand) {
-				case 1:
-					title = movie_string_1;
-					break;
-
-				case 2:
-					title = movie_string_2;
-					break;
-
-				case 3:
-					title = movie_string_3;
-					break;
+				//If we've already put this word in our list...
+				if(word_stat.hasOwnProperty(words[j])) {
+					//...add the following word to its key...
+					word_stat[curr_word].push(next_word);
+					//...throw in the inputted word as well...
+				//	word_stat[curr_word].push(input);
+				} else {
+					//...if not, add the next word to a new key array
+					word_stat[curr_word] = [next_word];
+				}
 			}
-			break;
+		}
 
-		case 2:
-			var rand = Math.floor((Math.random() * (3 - 1)) + 1);
-			switch(rand) {
-				case 1:
-					title = audio_string_1;
-					break;
+		//Randomly selects a value out of a given array
+		var choice = function(arr) {
+			var i = Math.floor(arr.length * Math.random());
+			return arr[i];
+		};
 
-				case 2:
-					title = audio_string_2;
-					break;
+		//Create a random torrent name using a Markov chain
+		var make_torrent = function(min_length) {
 
-				case 3:
-					title = audio_string_3;
+			//Randomly select a beginning word
+			var word = choice(beg_words);
+
+			//Use the first word to initialize a title array
+			var title = [word];
+
+			//Progressively add new words
+			while(word_stat.hasOwnProperty(word)) {
+
+				//Get a list of available next words
+				var next_words = word_stat[word];
+
+				//Randomly select the next word
+				word = choice(next_words);
+
+				//Append the word to the title
+				title.push(word);
+
+				//If we can safely end the title
+				if(title.length > min_length && end_word.hasOwnProperty(word)) {
+					//...break
 					break;
+				}
+
 			}
-			break;
 
-		case 3:
-			var rand = Math.floor((Math.random() * (3 - 1)) + 1);
-			switch(rand) {
-				case 1:
-					title = software_string_1;
-					break;
-
-				case 2:
-					title = software_string_2;
-					break;
-
-				case 3:
-					title = software_string_3;
-					break;
+			//If our title isn't long enough...
+			if(title.length < min_length) {
+				//make another torrent
+				return make_torrent(min_length);
 			}
-			break;
-	}
 
-	return title + ".torrent";
+			//Concatenate the title with spaces
+			return title.join(' ');
+
+		}
+
+		//Print the torrent name
+		$(".output").html(make_torrent(input.length + 1) + ".torrent");
 
 }
