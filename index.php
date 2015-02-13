@@ -22,7 +22,6 @@
 				<input type="text" id="input" />
 				<button autocomplete="off">Generate!</button>
 			</form>
-
 			<div class="output"></div>
 		</div>
 
