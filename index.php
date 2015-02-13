@@ -27,7 +27,7 @@
 		</div>
 
 		<footer class="uk-text-center">
-			Think this is cool? <a href="https://github.com/Nickersoft/Torrent-Name-Generator">Contribute on Github</a>.
+			Think this is cool? <a target="_blank" href="https://github.com/Nickersoft/Torrent-Name-Generator">Contribute on Github</a>.
 		</footer>
 
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
