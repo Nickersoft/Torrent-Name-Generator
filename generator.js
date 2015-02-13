@@ -25,6 +25,12 @@ function generate() {
 		//Get the user input from the textbox
 		var input    = $("input").eq(0).val();
 
+		//Make sure the user entered something to generate
+		if(input.length == 0) {
+			$(".output").html("Please enter a term first.");
+			return;
+		}
+
 		//Get all of the links on the Kickass Torrents homepage
 		var links    = $(html).find('.cellMainLink');
 
