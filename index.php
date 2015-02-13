@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/stylesheet" href="style.css" />
 		<link rel="stylesheet" type="text/stylesheet" href="override.css" />
 
+		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
 
