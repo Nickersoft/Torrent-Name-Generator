@@ -3,13 +3,13 @@
 	<head>
 		<title>The Torrent File Generator</title>
 
-		<script src="generator.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=VT323' />
+		<link rel='stylesheet' type='text/css' media="screen" href='http://fonts.googleapis.com/css?family=VT323' />
 
-		<link rel="stylesheet" type="text/stylesheet" href="bower_components/uikit/css/uikit.min.css" />
-		<link rel="stylesheet" type="text/stylesheet" href="style.css" />
-		<link rel="stylesheet" type="text/stylesheet" href="override.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="bower_components/uikit/css/uikit.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="override.css" />
 
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
@@ -34,6 +34,8 @@
 		<script src="bower_components/uikit/js/uikit.min.js"></script>
 		<script src="bower_components/typed.js/dist/typed.min.js"></script>
 		<script src="bower_components/jquery.typer/src/jquery.typer.js"></script>
+
+		<script src="generator.js"></script>
 		<script src="script.js"></script>
 
 		<script>
