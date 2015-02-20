@@ -171,6 +171,7 @@ function generate() {
 			var words = torrents[i].split(' ');
 			words = merge_by_char('(', ')', words);
 			words = merge_by_char('[', ']', words);
+			words = merge_by_char('{', '}', words);
 			console.log(words);
 
 			//Add the first word to its respective array
