@@ -1,4 +1,5 @@
-# Torrent-Name-Generator
-A little side project I did that puts user input into "torrent file format"
+#TFNG: Torrent File Name Generator
 
-The live site is viewable at <a href="http://thetorrentgenerator.gear.host">http://thetorrentgenerator.gear.host</a>.
+A side project I did that puts user input into file names following torrent naming conventions.
+
+The live site can be viewed <a href="http://tylernickerson.com/apps/tfng">here</a>.
