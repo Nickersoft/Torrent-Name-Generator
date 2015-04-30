@@ -3,6 +3,7 @@ html {
 	height:100%;
 	padding:0;
 	margin:0;
+    background:#000;
 }
 
 body {
@@ -13,10 +14,11 @@ body {
 	background:#000;
 	color:lime !important;
 	font-family:'VT323' !important;
+    font-size:16px;
 }
 
 form {
-	margin-top:50px;
+	margin-top:4em;
 }
 
 .output {
@@ -25,4 +27,93 @@ form {
 	display:inline-block;
 	width:50%;
 	height:150px;
+    line-height:1em;
+}
+
+#mobile-title {
+    display:none; 
+}
+
+#title {
+    display:block; 
+}
+
+h1 {
+	font-size:5em;
+	font-weight:lighter;
+    line-height:1em;
+	color:lime;
+	padding-top:2.5em;
+	font-family:'VT323' !important;
+    width:800px;
+    margin:0 auto;
+}
+
+h2 {
+	color:lime;
+	font-family:'VT323' !important;
+}
+
+input[type='text'] {
+	background:transparent !important;
+	font-size:2em;
+	line-height:2em;
+	height:2em !important;
+	border:2px solid lime !important;
+	color:lime !important;
+}
+
+button {
+	background:transparent;
+	color:lime;
+	border:2px solid lime;
+	font-size:2em;
+	padding:0px 20px 0px 20px;
+	margin:0;
+	height:2em;
+	vertical-align:top;
+	font-family:'VT323' !important;
+	cursor:pointer;
+	outline:none;
+}
+
+button:hover {
+	background:lime;
+	color:#000;
+}
+
+footer {
+	color:dimgray;
+	font-size:1.5em;
+    position:absolute;
+    text-align:center;
+    bottom:25px;
+    left:50%;
+}
+
+footer .inner {
+    position:relative;
+    left:-50%;
+}
+
+footer a {
+	color:#aaa;
+}
+
+footer a:hover {
+	color:white;
+	text-decoration:none;
+}
+
+@media screen and (max-width: 400px) {
+    body { font-size:12px; }
+    h1 { padding-top:1em; }
+    footer { display:none; }
+    #title { display:none; }
+    #mobile-title { display:block; }
+    button { margin-top:1em; }
+}
+
+@media screen and (max-width: 800px) {
+    h1 { width:100%; }
 }

@@ -12,10 +12,12 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="override.css" />
 
 		<link rel="icon" type="image/png" href="favicon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 
-		<h1 class="uk-text-center uk-text-light">The Torrent File Generator</h1>
+		<h1 id="title" class="uk-text-center uk-text-light">The Torrent File Name Generator</h1>
+        <h1 id="mobile-title" class="uk-text-center uk-text-light">TFNG</h1>
 		<h2 class="uk-text-center">What should the name of <i>your</i> next torrent be?</h2>
 
 		<div class="uk-text-center">
@@ -27,26 +29,28 @@
 		</div>
 
 		<footer class="uk-text-center">
-			Think this is cool? <a target="_blank" href="https://github.com/Nickersoft/Torrent-Name-Generator">Contribute on Github</a>.
+            <div class="inner">
+                Think this is cool? <a target="_blank" href="https://github.com/Nickersoft/Torrent-Name-Generator">Contribute on Github</a>.
+            </div>
 		</footer>
 
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/uikit/js/uikit.min.js"></script>
-		<script src="bower_components/typed.js/dist/typed.min.js"></script>
-		<script src="bower_components/jquery.typer/src/jquery.typer.js"></script>
-
 		<script src="generator.js"></script>
-		<script src="script.js"></script>
 
 		<script>
 			$(document).ready(function () {
-
 				$.post("get_torrents.php", { }, function(data) {
 					html = data;
 					ready = true;
 				});
-
 			});
+
+            $('form').submit(function() {
+                $(".output").html('');
+                var torrent = generate();
+                return false;
+            });
 
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
